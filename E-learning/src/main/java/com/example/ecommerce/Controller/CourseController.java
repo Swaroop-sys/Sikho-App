@@ -40,4 +40,8 @@ public class CourseController {
     public Course getCourseById(@PathVariable Long id) {
         return courseService.getCourseById(id);
     }
+     @GetMapping("/message")
+    public String getMethodName(@RequestParam String param) {
+        return "Hello Guuuuuyyyyyysssssssss";
+    }                
 }
