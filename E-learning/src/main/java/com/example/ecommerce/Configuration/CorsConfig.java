@@ -15,7 +15,7 @@ public class CorsConfig {
     public CorsFilter corsFilter() {
         CorsConfiguration config = new CorsConfiguration();
         config.setAllowCredentials(true); 
-        config.setAllowedOrigins(Arrays.asList("https://wonderful-paletas-fde7bc.netlify.app"));
+        config.setAllowedOrigins(Arrays.asList("https://wonderful-paletas-fde7bc.netlify.app/"));
         config.setAllowedHeaders(Arrays.asList("Authorization", "Content-Type", "Accept", "Origin", "X-Requested-With"));
         config.setExposedHeaders(Arrays.asList("Authorization"));
         config.setAllowedMethods(Arrays.asList("GET", "POST", "PUT", "DELETE", "OPTIONS"));
