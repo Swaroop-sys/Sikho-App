@@ -45,7 +45,7 @@ public class CourseController {
     }
     @GetMapping("/message")
     public String getMethodName(@RequestParam String param) {
-        return "Hello";
+        return "Hello Guuuuuyyyyyysssssssss";
     }
     
 }
