@@ -10,6 +10,9 @@ import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+
 
 @RestController
 @CrossOrigin(origins = "http://localhost:4200")
@@ -40,4 +43,9 @@ public class CourseController {
     public Course getCourseById(@PathVariable Long id) {
         return courseService.getCourseById(id);
     }
+    @GetMapping("/message")
+    public String getMethodName(@RequestParam String param) {
+        return "Hello";
+    }
+    
 }
