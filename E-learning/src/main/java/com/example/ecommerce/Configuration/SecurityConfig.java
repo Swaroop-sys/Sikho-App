@@ -32,6 +32,7 @@ public class SecurityConfig {
         http.cors().and().csrf().disable()
             .authorizeHttpRequests()
             .requestMatchers("/api/auth/**").permitAll()
+            .requestMatchers("/api/course/message").permitAll()
             .requestMatchers("/api/course/all-course").hasRole(Role.STUDENT.name())
             .requestMatchers("/api/course/get-by/").hasRole(Role.STUDENT.name())
             .requestMatchers("/api/course/add").hasRole(Role.INSTRUCTOR.name())
