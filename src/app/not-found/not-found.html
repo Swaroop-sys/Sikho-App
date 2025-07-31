@@ -1,0 +1,13 @@
+<div class="not-found-container">
+  <div class="illustration">
+    <img src="https://cdn-icons-png.flaticon.com/512/2748/2748558.png" alt="Lost Student" />
+  </div>
+  <h1>404 - Page Skipped Class!</h1>
+  <p>Looks like this page bunked the lecture... or maybe it just doesn’t exist. 🤓📚</p>
+  <div class="buttons">
+    
+    <button (click)="goBack()">🔙 Go Back</button>
+    <button (click)="randomTip()">💡 Study Tip</button>
+  </div>
+  <p class="study-tip" *ngIf="tipShown">💬 {{ randomStudyTip }}</p>
+</div>

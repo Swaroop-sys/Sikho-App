@@ -1,0 +1,35 @@
+<div *ngIf="course" class="details-container">
+  <div class="video-section">
+    <iframe
+      *ngIf="safeVideoUrl"
+      [src]="safeVideoUrl"
+      class="course-video"
+      frameborder="0"
+      allowfullscreen
+    ></iframe>
+  </div>
+
+  <div class="course-info">
+    <h1 class="course-title">{{ course.title }}</h1>
+
+    <div class="info-row">
+      <span class="icon">👨‍🏫</span>
+      <strong>Instructor:</strong>
+      <span>{{ course.instructorName }}</span>
+    </div>
+
+    <div class="info-row">
+      <span class="icon">📚</span>
+      <strong>Category:</strong>
+      <span>{{ course.category }}</span>
+    </div>
+
+    <div class="info-row description">
+      <span class="icon">📝</span>
+      <strong>Description:</strong>
+      <p>{{ course.description }}</p>
+    </div>
+
+    <!-- You can add more metadata or related video suggestions here -->
+  </div>
+</div>

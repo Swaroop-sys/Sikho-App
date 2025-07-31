@@ -1,0 +1,133 @@
+<div class="create-course-container">
+  <h2>Create New Course</h2>
+
+  <form (ngSubmit)="onSubmit()" #courseForm="ngForm" class="course-form" novalidate>
+
+    <!-- Title -->
+    <label for="title">Course Title</label>
+    <input
+      type="text"
+      id="title"
+      name="title"
+      [(ngModel)]="course.title"
+      required
+      placeholder="Enter course title"
+      list="titleSuggestions"
+      #title="ngModel"
+      [class.invalid]="title.invalid && title.touched"
+    />
+    <datalist id="titleSuggestions">
+      <option value="Full Stack Web Development"></option>
+      <option value="Frontend Development with Angular"></option>
+      <option value="Backend Development with Spring Boot"></option>
+      <option value="Mobile App Development with Flutter"></option>
+      <option value="Java Programming Masterclass"></option>
+      <option value="Python for Data Science"></option>
+      <option value="DevOps Fundamentals"></option>
+      <option value="Machine Learning with Python"></option>
+      <option value="UI/UX Design Principles"></option>
+      <option value="Cloud Computing with AWS"></option>
+    </datalist>
+    <div *ngIf="title.invalid && title.touched" class="error">Title is required.</div>
+
+    <!-- Description -->
+    <label for="description">Description</label>
+    <textarea
+      id="description"
+      name="description"
+      [(ngModel)]="course.description"
+      required
+      rows="4"
+      placeholder="Write a short description..."
+      #description="ngModel"
+      [class.invalid]="description.invalid && description.touched"
+    ></textarea>
+    <div *ngIf="description.invalid && description.touched" class="error">Description is required.</div>
+
+    <!-- Category Dropdown + Custom Entry -->
+    <label for="category">Category</label>
+    <input
+      list="categories"
+      id="category"
+      name="category"
+      [(ngModel)]="course.category"
+      required
+      placeholder="Choose or type a category"
+      #category="ngModel"
+      [class.invalid]="category.invalid && category.touched"
+    />
+    <datalist id="categories">
+      <option value="Web Development"></option>
+      <option value="Mobile Development"></option>
+      <option value="Data Science"></option>
+      <option value="Machine Learning"></option>
+      <option value="Artificial Intelligence"></option>
+      <option value="Cloud Computing"></option>
+      <option value="Cybersecurity"></option>
+      <option value="DevOps"></option>
+      <option value="Blockchain"></option>
+      <option value="Programming Languages"></option>
+      <option value="UI/UX Design"></option>
+      <option value="Database & SQL"></option>
+      <option value="Game Development"></option>
+      <option value="Software Testing"></option>
+      <option value="Internet of Things (IoT)"></option>
+      <option value="AR/VR Development"></option>
+    </datalist>
+    <div *ngIf="category.invalid && category.touched" class="error">Category is required.</div>
+
+    <!-- Thumbnail URL -->
+    <label for="thumbnailUrl">Thumbnail URL</label>
+    <input
+      type="url"
+      id="thumbnailUrl"
+      name="thumbnailUrl"
+      [(ngModel)]="course.thumbnailUrl"
+      required
+      pattern="https?://.+"
+      placeholder="https://example.com/thumbnail.jpg"
+      #thumbnailUrl="ngModel"
+      [class.invalid]="thumbnailUrl.invalid && thumbnailUrl.touched"
+    />
+    <div *ngIf="thumbnailUrl.invalid && thumbnailUrl.touched" class="error">
+      Valid thumbnail URL is required (starts with http:// or https://).
+    </div>
+
+    <!-- Video URL -->
+    <label for="videoUrl">Video URL</label>
+    <input
+      type="url"
+      id="videoUrl"
+      name="videoUrl"
+      [(ngModel)]="course.videoUrl"
+      required
+      pattern="https?://.+"
+      placeholder="https://example.com/video.mp4"
+      #videoUrl="ngModel"
+      [class.invalid]="videoUrl.invalid && videoUrl.touched"
+    />
+    <div *ngIf="videoUrl.invalid && videoUrl.touched" class="error">
+      Valid video URL is required (starts with http:// or https://).
+    </div>
+<div *ngIf="videoUrl.invalid && videoUrl.touched" class="error">VideoUrl is required.</div>
+    <!-- Price -->
+    <label for="price">Price (₹)</label>
+    <input
+      type="number"
+      id="price"
+      name="price"
+      [(ngModel)]="course.price"
+      required
+      min="0"
+      step="0.01"
+      placeholder="e.g. 499"
+      #price="ngModel"
+      [class.invalid]="price.invalid && price.touched"
+    />
+    <div *ngIf="price.invalid && price.touched" class="error">Valid price is required.</div>
+
+    <!-- Submit Button -->
+    <button type="submit"  class="submit-btn" [disabled]="!courseForm.form.valid">Create Course</button>
+
+  </form>
+</div>

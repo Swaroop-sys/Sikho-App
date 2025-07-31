@@ -1,0 +1,45 @@
+<div class="course-counter">
+   You have uploaded <span class="counter">{{ courses.length }}</span> course{{ courses.length === 1 ? '' : 's' }}!
+   
+</div>
+
+<div class="course-grid">
+  <div *ngFor="let course of courses" class="course-card">
+    <div
+      class="video-thumbnail-wrapper"
+      (mouseenter)="course.play = true"
+      (mouseleave)="course.play = false"
+      (click)="course.play = !course.play"
+    >
+      <img
+        *ngIf="!course.play"
+        [src]="course.thumbnailUrl"
+        alt="{{ course.title }}"
+        class="thumbnail"
+      />
+
+      <video
+        *ngIf="course.play"
+        [src]="course.videoUrl"
+        autoplay
+        muted
+        controls
+        class="video-player"
+      ></video>
+    </div>
+
+    <div class="card-content">
+      <h3 class="title">{{ course.title }}</h3>
+      <p class="instructor"><strong>Instructor Name:</strong> {{ course.instructorName }}</p>
+      <p class="category">📚 {{ course.category }}</p>
+      <p class="description">{{ course.description | slice: 0:100 }}...</p>
+      <p class="price">💰 ₹{{ course.price }}</p>
+
+      <div class="actions">
+        <button class="btn edit">✏️ Edit</button>
+        <button class="btn delete">🗑️ Delete</button>
+        <button class="btn details">📄 Details</button>
+      </div>
+    </div>
+  </div>
+</div>
