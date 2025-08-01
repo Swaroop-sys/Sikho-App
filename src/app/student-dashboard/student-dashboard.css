@@ -155,3 +155,27 @@
   cursor: pointer;
   font-size: 16px;
 }
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+}
+
+.sidebar ul li {
+  margin: 10px 0;
+}
+
+.sidebar ul li button {
+  all: unset; /* Reset default button styles */
+  cursor: pointer;
+  font-size: 16px;
+  padding: 8px 12px;
+  display: block;
+  width: 100%;
+  text-align: left;
+  transition: background 0.3s;
+}
+
+.sidebar ul li button:hover {
+  background-color: #f0f0f0;
+  border-radius: 5px;
+}

@@ -171,17 +171,18 @@
   </div>
 
   <!-- Sidebar -->
-  <div class="sidebar">
-    <ul>
-      <li>🏠 Dashboard</li>
-      <li>📚 Courses</li>
-      <li>🗂️ Categories</li>
-      <li>🎓 My Learning</li>
-      <li>⚙️ Settings</li>
-      <li><a (click)="onLogout()" style="cursor: pointer;">🚪 Logout</a></li>
-      <button>Hello</button>
-    </ul>
-  </div>
+<div class="sidebar">
+  <ul>
+    <li><button>🏠 Dashboard</button></li>
+    <li><button>📚 Courses</button></li>
+    <li><button>🗂️ Categories</button></li>
+    <li><button>🎓 My Learning</button></li>
+    <li><button>⚙️ Settings</button></li>
+    <li><button (click)="onLogout()">🚪 Logout</button></li>
+    <!-- <li><button (click)="sayHello()">👋 Hello</button></li> -->
+  </ul>
+</div>
+
 
   <!-- Main Content -->
   <div class="main">
