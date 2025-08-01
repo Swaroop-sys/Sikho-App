@@ -16,7 +16,7 @@ import com.example.ecommerce.model.AuthModel;
 
 @RestController
 @RequestMapping("/api/auth")
-@CrossOrigin(origins = "http://localhost:4200") 
+@CrossOrigin(origins = "https://wonderful-paletas-fde7bc.netlify.app") 
 public class AuthController {
 
     @Autowired
