@@ -31,6 +31,9 @@ watchVideo(course: any) {
   this.router.navigate(['/course', course.id]);
 }
 
-
+onLogout(){
+  localStorage.clear();
+  this.router.navigate(['/login'],{replaceUrl:true});
+}
 
 }
