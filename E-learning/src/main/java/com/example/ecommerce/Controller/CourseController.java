@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 
 @RestController
-@CrossOrigin(origins = "https://wonderful-paletas-fde7bc.netlify.app")
+@CrossOrigin(origins = "https://majestic-rolypoly-d12d8d.netlify.app")
 @RequestMapping("/api/course")
 public class CourseController {
 
