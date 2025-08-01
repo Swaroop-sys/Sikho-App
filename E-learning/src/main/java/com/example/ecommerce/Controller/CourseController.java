@@ -43,16 +43,9 @@ public class CourseController {
     public Course getCourseById(@PathVariable Long id) {
         return courseService.getCourseById(id);
     }
-<<<<<<< HEAD
     @GetMapping("/message")
     public String getMethodName(@RequestParam String param) {
         return "Hello Guuuuuyyyyyysssssssss";
     }
     
-=======
-     @GetMapping("/message")
-    public String getMethodName(@RequestParam String param) {
-        return "Hello Guuuuuyyyyyysssssssss";
-    }                
->>>>>>> branch 'master' of https://github.com/Swaroop-sys/Sikho-App.git
 }
