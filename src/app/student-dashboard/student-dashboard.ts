@@ -32,6 +32,8 @@ watchVideo(course: any) {
 }
 
 onLogout(){
+  console.log("Button Logout CLicked");
+  
   localStorage.clear();
   this.router.navigate(['/login'],{replaceUrl:true});
 }
