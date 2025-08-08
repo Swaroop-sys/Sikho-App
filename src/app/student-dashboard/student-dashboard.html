@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Sikho - E-Learning Platform</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
   <style>
@@ -15,109 +15,86 @@
     html, body {
       height: 100%;
       font-family: 'Inter', sans-serif;
-      overflow-x: hidden;
+      background-color: #f9fafb;
     }
 
-    body {
-      display: flex;
-    }
-
-    /* Sidebar */
-    .sidebar {
-      width: 220px;
-      background-color: #1e2a3a;
-      color: white;
-      height: 100vh;
-      position: fixed;
-      top: 60px;
-      left: 0;
-      padding: 30px 20px;
-    }
-
-    .sidebar h2 {
-      margin-bottom: 30px;
-      font-size: 20px;
-      text-align: center;
-    }
-
-    .sidebar ul {
-      list-style: none;
-    }
-
-    .sidebar ul li {
-      padding: 12px 10px;
-      border-radius: 8px;
-      cursor: pointer;
-      transition: background 0.3s;
-    }
-
-    .sidebar ul li:hover {
-      background-color: #31475e;
-    }
-
-    /* Navbar */
     .navbar {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 60px;
-      background-color: #0f172a;
+      background-color: #1e293b;
       color: white;
+      padding: 1rem 2rem;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 0 30px;
+      position: sticky;
+      top: 0;
       z-index: 1000;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     }
 
     .navbar h1 {
-      font-size: 20px;
+      font-size: 1.5rem;
       font-weight: 600;
     }
 
-    .navbar .profile {
-      font-size: 14px;
+    .profile {
+      background-color: #64748b;
+      padding: 0.5rem 1rem;
+      border-radius: 9999px;
+      font-size: 0.875rem;
     }
 
-    /* Main */
+    .nav-buttons {
+      display: flex;
+      gap: 1rem;
+      margin: 2rem auto;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .nav-buttons button {
+      background-color: #3b82f6;
+      border: none;
+      color: white;
+      padding: 0.75rem 1.5rem;
+      border-radius: 0.5rem;
+      cursor: pointer;
+      font-size: 1rem;
+      transition: background-color 0.2s ease-in-out;
+    }
+
+    .nav-buttons button:hover {
+      background-color: #2563eb;
+    }
+
     .main {
-      margin-left: 220px;
-      padding: 100px 30px 30px;
-      width: 100%;
+      padding: 2rem;
     }
 
-    h2 {
-      font-size: 22px;
-      margin-bottom: 20px;
+    .section-title {
       text-align: center;
+      font-size: 1.75rem;
+      font-weight: 600;
+      margin-bottom: 1.5rem;
+      color: #1e293b;
     }
 
     .slider-wrapper {
-      overflow: hidden;
-      position: relative;
-      width: 100%;
-    }
-
-    .slider {
-      display: flex;
-      gap: 16px;
-      animation: scroll 25s linear infinite;
+      overflow-x: auto;
+      padding-bottom: 1rem;
     }
 
     .slider-track {
       display: flex;
-      gap: 16px;
+      gap: 1rem;
+      width: max-content;
     }
 
     .category-card {
-      flex: 0 0 auto;
       width: 200px;
-      background: #fff;
-      border-radius: 12px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+      background-color: white;
+      border-radius: 0.75rem;
       overflow: hidden;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
       transition: transform 0.3s;
     }
 
@@ -132,154 +109,145 @@
     }
 
     .category-card h4 {
-      font-size: 15px;
-      padding: 12px;
+      padding: 0.75rem;
       text-align: center;
+      font-size: 1rem;
+      color: #1e293b;
     }
 
-    @keyframes scroll {
-      0% { transform: translateX(0); }
-      100% { transform: translateX(-50%); }
+    .course-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      justify-content: center;
+      margin-top: 2rem;
+    }
+
+    .course-card {
+      background-color: white;
+      border-radius: 0.75rem;
+      overflow: hidden;
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.06);
+      width: 300px;
+      transition: transform 0.3s;
+    }
+
+    .course-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .course-thumbnail {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+    }
+
+    .course-content {
+      padding: 1rem;
+    }
+
+    .course-title {
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: #1e293b;
+    }
+
+    .course-instructor,
+    .course-category,
+    .course-description,
+    .course-price,
+    .course-date {
+      font-size: 0.9rem;
+      color: #475569;
+      margin: 0.25rem 0;
+    }
+
+    .watch-button {
+      background-color: #10b981;
+      color: white;
+      padding: 0.5rem 1rem;
+      border: none;
+      border-radius: 0.5rem;
+      cursor: pointer;
+      margin-top: 1rem;
+      transition: background-color 0.2s ease-in-out;
+    }
+
+    .watch-button:hover {
+      background-color: #059669;
     }
 
     @media (max-width: 768px) {
-      .sidebar {
-        display: none;
+      .course-card {
+        width: 100%;
       }
 
-      .main {
-        margin-left: 0;
-        padding-top: 80px;
-      }
-
-      .category-card {
-        width: 160px;
-      }
-
-      .navbar h1 {
-        font-size: 18px;
+      .nav-buttons button {
+        width: 100%;
+        max-width: 300px;
       }
     }
   </style>
 </head>
 <body>
-
-  <!-- Navbar -->
   <div class="navbar">
-    <h1>📘 Sikho - Learn Smart</h1>
-    <div class="profile">👤 Student</div>
+    <h1 class="sikho-logo"> SIKHO</h1>
+
+    <div class="profile">Hello, Student</div>
   </div>
 
-  <!-- Sidebar -->
-<div class="sidebar">
-  <ul>
-    <li><button>🏠 Dashboard</button></li>
-    <li><button>📚 Courses</button></li>
-    <li><button>🗂️ Categories</button></li>
-    <li><button>🎓 My Learning</button></li>
-    <li><button>⚙️ Settings</button></li>
-    <li><button (click)="onLogout()">🚪 Logout</button></li>
-    <!-- <li><button (click)="sayHello()">👋 Hello</button></li> -->
-  </ul>
-</div>
+  <div class="nav-buttons">
+    
+    <button>Courses</button>
+    <button (click)="categories()">Categories</button>
+    <button (click)="onMyLearning()">My Learning</button>
+    <button>Settings</button>
+    <button (click)="onLogout()">Logout</button>
+  </div>
 
-
-  <!-- Main Content -->
   <div class="main">
-    <h2>Explore Categories</h2>
-    <div class="slider-wrapper">
-        <div class="slider">
-      <div class="slider-track">
-        <div class="category-card">
-          <img src="https://cdn.pixabay.com/photo/2014/12/28/13/20/wordpress-581849_1280.jpg" />
-          <h4>Web Development</h4>
-        </div>
-        <div class="category-card">
-          <img src="https://cdn.pixabay.com/photo/2018/04/12/18/13/application-3314295_1280.png" />
-          <h4>Mobile Development</h4>
-        </div>
-        <div class="category-card">
-          <img src="https://media.istockphoto.com/id/1261862493/vector/data-science-abstract-vector-background-3d-sphere-cloud-server-machine-learning-technology.jpg?s=612x612&w=0&k=20&c=u70S7A7ivPPd33lww5x1QAWUKPd5huY0yo7DgfI-j9k=" />
-          <h4>Data Science</h4>
-        </div>
-        <div class="category-card">
-          <img src="https://media.istockphoto.com/id/1273072739/vector/machine-learning-banner-logo-for-technology-ai-big-data-algorithm-neural-network-deep.jpg?s=612x612&w=0&k=20&c=FSMy87-yIhqJjA86KFBFefZjJFmMQMuDYq8rQ2EK7bw=" />
-          <h4>Machine Learning</h4>
-        </div>
-        <div class="category-card">
-          <img src="https://media.istockphoto.com/id/1476380310/vector/artificial-intelligence-ai-text-in-center-and-moving-blue-waves-machine-learning-and-data.jpg?s=612x612&w=0&k=20&c=AtULshv9fkqEVaQGj0SeQEInRffHJzwFNgL3gu08RN4=" />
-          <h4>Artificial Intelligence</h4>
-        </div>
-        <div class="category-card">
-          <img src="https://media.istockphoto.com/id/1188953848/vector/cloud-computing-concept-neon-light-connection-in-neural-network-isometric-vector-technolodgy.jpg?s=612x612&w=0&k=20&c=yMNeVUM9CEK4tmjKIXcPMF1EB7ojA77H0q62AWmWbqw=" />
-          <h4>Cloud Computing</h4>
-        </div>
-        <div class="category-card">
-          <img src="https://media.istockphoto.com/id/1130231182/vector/futuristic-blue-shield-ethics-and-privacy-protection-abstract-technology-background.jpg?s=612x612&w=0&k=20&c=dk0XqiHVji3udN0bVKlVRchAdo0KnGlxFwYO29OtgYg=" />
-          <h4>Cybersecurity</h4>
-        </div>
-        <div class="category-card">
-          <img src="https://media.istockphoto.com/id/1367728715/vector/devops-concept-with-infinite-loop-on-abstract-technology-background.jpg?s=612x612&w=0&k=20&c=aadwZ3TQPv31Qxd_RyCwvoNNHBT1kNiaoksHtPdfKAA=" />
-          <h4>DevOps</h4>
-        </div>
-        <div class="category-card">
-          <img src="https://source.unsplash.com/220x130/?blockchain" />
-          <h4>Blockchain</h4>
-        </div>
-        <div class="category-card">
-          <img src="https://source.unsplash.com/220x130/?programming" />
-          <h4>Programming Languages</h4>
-        </div>
-        <div class="category-card">
-          <img src="https://source.unsplash.com/220x130/?uiux,design" />
-          <h4>UI/UX Design</h4>
-        </div>
-        <div class="category-card">
-          <img src="https://source.unsplash.com/220x130/?sql,database" />
-          <h4>Database & SQL</h4>
-        </div>
-        <div class="category-card">
-          <img src="https://source.unsplash.com/220x130/?gamedevelopment" />
-          <h4>Game Development</h4>
-        </div>
-        <div class="category-card">
-          <img src="https://source.unsplash.com/220x130/?softwaretesting" />
-          <h4>Software Testing</h4>
-        </div>
-        <div class="category-card">
-          <img src="https://source.unsplash.com/220x130/?iot" />
-          <h4>Internet of Things (IoT)</h4>
-        </div>
-        <div class="category-card">
-          <img src="https://source.unsplash.com/220x130/?ar,vr,virtualreality" />
-          <h4>AR/VR Development</h4>
-        </div>
-      </div>
-    </div>
-    </div>
-<div class="course-container">
-  <div class="course-card" *ngFor="let course of courses">
-    <img [src]="course.thumbnailUrl || 'https://source.unsplash.com/300x180/?education,technology'" alt="Course Thumbnail" class="course-thumbnail">
-
-    <div class="course-content">
-      <h2 class="course-title">{{ course.title }}</h2>
-      <p class="course-instructor">👨‍🏫 Instructor: {{ course.instructorName }}</p>
-      <p class="course-category">📚 Category: {{ course.category }}</p>
-      <p class="course-description">{{ course.description }}</p>
-
-      <div class="course-footer">
-        <span class="course-price">💰 ₹{{ course.price }}</span>
-        <span class="course-date">📅 Created: {{ course.createdAt | date:'mediumDate' }}</span>
-      </div>
-
-      <button class="watch-button" (click)="watchVideo(course)">🎬 Watch Now</button>
-
-    </div>
-  </div>
-
+    
+    <div class="course-container">
+      <div class="course-card" *ngFor="let course of courses">
+        <img [src]="course.thumbnailUrl || 'https://source.unsplash.com/300x180/?education'" alt="Course Thumbnail" class="course-thumbnail">
+        <div class="course-content">
+          <h2 class="course-title">{{ course.title }}</h2>
+          <p class="course-instructor">👨‍🏫 Instructor: {{ course.instructorName }}</p>
+          <p class="course-category">📚 Category: {{ course.category }}</p>
+          <p class="course-description">{{ course.description }}</p>
+          
+          <div class="course-footer">
+            
+            <span class="course-date">📅 {{ course.createdAt | date:'mediumDate' }}</span>
+          </div>
+        <!-- If course is already bought, show a message -->
+         <br>
+<!-- Show purchased message if already bought -->
+<div *ngIf="course.isBought; else buyBlock" class="purchased-message">
+  ✅ Already Purchased
 </div>
 
-  </div>
+<ng-template #buyBlock>
+  <button class="watch-button" (click)="watchVideo(course); addEarning(course.instructor.user_id,course.price)">
+    ₹{{ course.price }}
+  </button>
+</ng-template>
 
+
+<!-- Purchase success popup -->
+
+
+        </div>
+      </div>
+    </div>
+<div class="popup" *ngIf="showPopup">
+  Purchase successful!
+</div>
+<div class="rpopup" *ngIf="xyz">
+  {{err}}
+</div>
+
+    <router-outlet></router-outlet>
+  </div>
 </body>
 </html>

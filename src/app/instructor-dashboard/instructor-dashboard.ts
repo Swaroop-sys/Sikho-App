@@ -27,6 +27,9 @@ export class InstructorDashboard implements OnInit{
   gotoMyCourse(){
     this.router.navigate(["instructor-dashboard/my-courses"]);
   }
+  gotoEarning(){
+    this.router.navigate(["instructor-dashboard/earning"]);
+  }
   logout(): void {
  
     localStorage.removeItem('token');

@@ -1,3 +1,4 @@
+
 <div *ngIf="course" class="details-container">
   <div class="video-section">
     <iframe
@@ -6,6 +7,7 @@
       class="course-video"
       frameborder="0"
       allowfullscreen
+      
     ></iframe>
   </div>
 
@@ -29,7 +31,16 @@
       <strong>Description:</strong>
       <p>{{ course.description }}</p>
     </div>
+  </div>
 
-    <!-- You can add more metadata or related video suggestions here -->
+  <div class="simple-notes">
+    <h2>🗒️ Your Notes</h2>
+    <textarea
+      placeholder="Write your note here..."
+      class="note-textarea"
+    ></textarea>
+    <div class="notes-buttons">
+      <button class="download-btn">⬇️ Download Note</button>
+    </div>
   </div>
 </div>

@@ -8,9 +8,9 @@ import { Observable } from 'rxjs';
 export class AuthService {
   constructor(private http: HttpClient) {}
  registerUser(userData: any) {
-    return this.http.post('https://sikho-app-production.up.railway.app/api/auth/register', userData);
+    return this.http.post('http://localhost:8080/api/auth/register', userData);
   }
   loginUser(userData: any):Observable<any> {
-    return this.http.post<any>('https://sikho-app-production.up.railway.app/api/auth/login', userData);
+    return this.http.post<any>('http://localhost:8080/api/auth/login', userData);
   }
 }

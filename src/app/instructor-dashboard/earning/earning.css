@@ -1,0 +1,85 @@
+.earning-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 80vh;
+  /* background: linear-gradient(to right, #fceabb, #f8b500); */
+  animation: fadeIn 1s ease-in-out;
+}
+
+.earning-card {
+  background: white;
+  padding: 40px 50px;
+  border-radius: 20px;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+  text-align: center;
+  animation: popIn 0.8s ease;
+  transition: transform 0.3s ease;
+}
+
+.earning-card:hover {
+  transform: scale(1.05);
+}
+
+.icon {
+  font-size: 50px;
+  margin-bottom: 15px;
+  animation: bounce 2s infinite;
+}
+
+.title {
+  font-size: 28px;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.amount {
+  font-size: 40px;
+  font-weight: bold;
+  color: #28a745;
+  animation: countUp 1.5s ease-out;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes popIn {
+  0% {
+    transform: scale(0.7);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes countUp {
+  0% {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}

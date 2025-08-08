@@ -17,7 +17,7 @@ export class InstructorService {
     'Authorization': `Bearer ${token}`,
     'Content-Type': 'application/json'
   });
-      return this.http.post<any>( 'https://sikho-app-production.up.railway.app/api/course/add', userData,{headers});
+      return this.http.post<any>( 'http://localhost:8080/api/course/add', userData,{headers});
     }
     // my-courses
     myCourse(): Observable<any> {
@@ -26,7 +26,20 @@ export class InstructorService {
     'Authorization': `Bearer ${token}`
   });
 
-  return this.http.get<any>('https://sikho-app-production.up.railway.app/api/course/my-courses', { headers });
+  return this.http.get<any>('http://localhost:8080/api/course/my-courses', { headers });
 }
-
+myEarning(id:any):Observable<any>{
+  const token = localStorage.getItem('token');
+  const headers = new HttpHeaders({
+    'Authorization': `Bearer ${token}`
+  });
+return this.http.get(`http://localhost:8080/api/earning/total-earning/${id}`,{headers})
+}
+getUserByEmail(email:any){
+const token = localStorage.getItem('token');
+  const headers = new HttpHeaders({
+    'Authorization': `Bearer ${token}`
+  });
+return this.http.get(`http://localhost:8080/api/auth/stud-email/${email}`,{headers})
+}
 }

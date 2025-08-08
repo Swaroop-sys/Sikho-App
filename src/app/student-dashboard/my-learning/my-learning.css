@@ -1,0 +1,136 @@
+.course-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 20px;
+  padding: 20px;
+}
+
+.course-card {
+  background: #fff;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease-in-out;
+}
+
+.course-card:hover {
+  transform: translateY(-5px);
+}
+
+.media-container {
+  position: relative;
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+}
+
+.thumbnail,
+.hover-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+  transition: opacity 0.4s ease;
+}
+
+.hover-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.media-container:hover .hover-video {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.media-container:hover .thumbnail {
+  opacity: 0;
+}
+
+.course-info {
+  padding: 15px 20px;
+}
+
+.title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin: 5px 0 10px;
+  color: #333;
+}
+
+.category {
+  font-size: 0.95rem;
+  color: #777;
+  margin-bottom: 10px;
+}
+
+.description {
+  font-size: 0.9rem;
+  color: #444;
+  margin-bottom: 15px;
+  line-height: 1.4;
+}
+
+.course-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.instructor {
+  font-size: 0.85rem;
+  color: #555;
+}
+
+.enroll-btn {
+  background-color: #007bff;
+  color: white;
+  padding: 8px 16px;
+  border-radius: 25px;
+  border: none;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.enroll-btn:hover {
+  background-color: #0056b3;
+}
+.rating-container {
+  direction: rtl;
+  unicode-bidi: bidi-override;
+  font-size: 2rem;
+  display: inline-flex;
+}
+
+.rating-container input {
+  display: none;
+}
+
+.rating-container label {
+  color: #ccc;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+
+.rating-container input:checked ~ label,
+.rating-container label:hover,
+.rating-container label:hover ~ label {
+  color: #ffc107; /* Amber */
+}
+.no-courses-message {
+  text-align: center;
+  margin-top: 50px;
+  font-size: 1.2rem;
+  color: #777;
+  font-weight: 500;
+  /* background-color: #f8f8f8; */
+  padding: 20px;
+  border-radius: 10px;
+  /* box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05); */
+}

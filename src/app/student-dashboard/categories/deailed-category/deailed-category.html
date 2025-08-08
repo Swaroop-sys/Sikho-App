@@ -1,0 +1,37 @@
+<div *ngIf="courses.length === 0" class="no-courses-message">There Is No Course</div>
+<div class="course-grid">
+  
+  <div class="course-card" *ngFor="let course of courses">
+    <div class="media-container">
+      <img [src]="course.thumbnailUrl" alt="Thumbnail" class="thumbnail" />
+      <video
+        #videoPlayer
+        [src]="course.videoUrl"
+        muted
+        class="hover-video"
+        (mouseenter)="videoPlayer.play()"
+        (mouseleave)="videoPlayer.pause(); videoPlayer.currentTime = 0">
+      </video>
+    </div>
+
+    <div class="course-info">
+      <h3 class="title">{{ course.title }}</h3>
+      <p class="category">📚 {{ course.category }}</p>
+      <p class="description">{{ course.description | slice:0:100 }}...</p>
+
+      <div class="course-meta">
+        <span class="instructor">👨‍🏫 {{ course.instructorName || 'Instructor' }}</span>
+        <button class="enroll-btn" >Start ▶</button>
+      </div>
+        <div class="rating-container">
+  <input type="radio" id="star5" name="rating" value="5" /><label for="star5" title="5 stars">★</label>
+  <input type="radio" id="star4" name="rating" value="4" /><label for="star4" title="4 stars">★</label>
+  <input type="radio" id="star3" name="rating" value="3" /><label for="star3" title="3 stars">★</label>
+  <input type="radio" id="star2" name="rating" value="2" /><label for="star2" title="2 stars">★</label>
+  <input type="radio" id="star1" name="rating" value="1" /><label for="star1" title="1 star">★</label>
+</div>
+ 
+    </div>
+  </div>
+
+</div>

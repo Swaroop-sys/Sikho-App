@@ -1,56 +1,106 @@
 .details-container {
-  max-width: 900px;
-  margin: 40px auto;
-  padding: 20px;
-  background: #fff;
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
-  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  padding: 2rem;
+  background: #f9f9f9;
+  border-radius: 16px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
   font-family: 'Segoe UI', sans-serif;
 }
 
 .video-section {
-  overflow: hidden;
+  width: 100%;
   border-radius: 12px;
-  margin-bottom: 20px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  
 }
 
 .course-video {
   width: 100%;
-  height: 450px;
+  height: 400px;
   border: none;
-  border-radius: 12px;
 }
 
 .course-info {
-  padding: 10px 20px;
+  padding: 1rem 0;
 }
 
 .course-title {
-  font-size: 28px;
-  font-weight: 700;
-  margin-bottom: 20px;
-  color: #2c3e50;
+  font-size: 2rem;
+  color: #333;
+  margin-bottom: 1rem;
 }
 
 .info-row {
   display: flex;
   align-items: center;
-  margin-bottom: 12px;
-  font-size: 16px;
+  margin: 0.5rem 0;
+  font-size: 1.1rem;
 }
 
-.info-row .icon {
-  margin-right: 10px;
-  font-size: 18px;
-}
-
-.info-row strong {
-  margin-right: 6px;
-  color: #555;
+.icon {
+  margin-right: 0.5rem;
+  font-size: 1.2rem;
 }
 
 .description p {
-  margin-top: 6px;
-  line-height: 1.6;
-  color: #444;
+  margin-left: 1.8rem;
+  margin-top: 0.2rem;
+  color: #555;
+}
+
+.simple-notes {
+  margin-top: 2rem;
+  background: #fff;
+  padding: 1.5rem;
+  border: 2px solid #e0e0e0;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+.simple-notes h2 {
+  margin-bottom: 1rem;
+  font-size: 1.4rem;
+  color: #222;
+}
+
+.note-textarea {
+  width: 100%;
+  min-height: 120px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 1rem;
+  font-size: 1rem;
+  resize: vertical;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.03);
+}
+
+.notes-buttons {
+  margin-top: 1rem;
+  text-align: right;
+}
+
+.download-btn {
+  background-color: #007bff;
+  color: white;
+  padding: 0.6rem 1.2rem;
+  font-size: 0.95rem;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.download-btn:hover {
+  background-color: #0056b3;
+}
+.custom-video-player {
+  width: 100%;
+  max-width: 900px;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  outline: none;
+  background: black;
 }
