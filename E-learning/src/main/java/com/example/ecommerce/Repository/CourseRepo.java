@@ -9,5 +9,5 @@ import com.example.ecommerce.model.Course;
 
 public interface CourseRepo extends JpaRepository<Course, Long> {
     List<Course> findByInstructor(AuthModel instructor);
-    
+    List<Course> findByCategory(String category);
 }

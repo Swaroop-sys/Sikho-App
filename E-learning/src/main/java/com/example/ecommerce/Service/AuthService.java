@@ -1,7 +1,9 @@
 package com.example.ecommerce.Service;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -50,5 +52,8 @@ public class AuthService {
         System.out.println("Generated Token: " + token);
         System.out.println("Role is :"+user.getRole().name());
         return new LoginResponse(token, user.getRole().name());
+    }
+    public Optional<AuthModel> getStudByEmail(String email) {
+    	return authRepository.findByEmail(email);
     }
 }

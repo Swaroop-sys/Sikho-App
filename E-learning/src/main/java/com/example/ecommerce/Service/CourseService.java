@@ -42,5 +42,8 @@ public class CourseService {
     public Course getCourseById(Long id) {
         return courseRepository.findById(id).orElseThrow(()->new RuntimeException("Course Not Found"));
     }
+    public List<Course> findByCategory(String categories){
+    	return courseRepository.findByCategory(categories);
+    }
 }
 

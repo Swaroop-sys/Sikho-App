@@ -23,17 +23,30 @@ public class SecurityConfig {
 
     @Autowired
     private JwtFilter jwtFilter;
-
+///api/student-courses/add-stud-course
+/// /get-by-email
+/// /stud-email
+/// /getCourse
+/// /get-course-student
+/// api/earning/add-earning
+/// api/earning/total-earning
     @Autowired
     private CustomUserDetailsService customUserDetailsService;
-
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http.cors().and().csrf().disable()
             .authorizeHttpRequests()
             .requestMatchers("/api/auth/**").permitAll()
             .requestMatchers("/api/course/message").permitAll()
+            .requestMatchers("/api/course/get-by-category").hasRole(Role.STUDENT.toString())
+            .requestMatchers("/api/student-courses/getCourse").permitAll()
+            .requestMatchers("/api/student-courses/get-course-student/").hasRole(Role.STUDENT.name())
+            .requestMatchers("/api/earning/total-earning").hasRole(Role.INSTRUCTOR.name())
+            .requestMatchers("/api/earning/add-earning").hasRole(Role.STUDENT.name())
             .requestMatchers("/api/course/all-course").hasRole(Role.STUDENT.name())
+            .requestMatchers("/api/student-courses/add-stud-course").hasRole(Role.STUDENT.name())
+            .requestMatchers("/api/student-courses/get-by-email").hasRole(Role.STUDENT.name())
+            .requestMatchers("/api/auth/stud-email").hasRole(Role.STUDENT.name())
             .requestMatchers("/api/course/get-by/").hasRole(Role.STUDENT.name())
             .requestMatchers("/api/course/add").hasRole(Role.INSTRUCTOR.name())
             .requestMatchers("/api/course/my-courses").hasRole(Role.INSTRUCTOR.name())

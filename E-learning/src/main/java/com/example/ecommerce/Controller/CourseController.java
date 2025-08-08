@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 
 @RestController
-@CrossOrigin(origins = "https://wonderful-paletas-fde7bc.netlify.app")
+@CrossOrigin(origins = "http://localhost:4200")
 @RequestMapping("/api/course")
 public class CourseController {
 
@@ -47,5 +47,8 @@ public class CourseController {
     public String getMethodName(@RequestParam String param) {
         return "Hello Guuuuuyyyyyysssssssss";
     }
-    
+    @GetMapping("/get-by-category/{categories}")
+    public List<Course> getCourseById(@PathVariable String categories) {
+        return courseService.findByCategory(categories);
+    }
 }

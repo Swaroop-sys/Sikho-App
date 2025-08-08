@@ -1,6 +1,8 @@
 package com.example.ecommerce.model;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
 import org.hibernate.annotations.CreationTimestamp;
 
@@ -31,7 +33,7 @@ public class Course {
 	    private Double price;
 	    private String instructorName;
 
-	    @JsonIgnore
+	    
 	    @ManyToOne
 	    @JoinColumn(name = "instructor_id", nullable = false)
 	    private AuthModel instructor; 
@@ -39,6 +41,10 @@ public class Course {
 	    @CreationTimestamp
 	    @Column(updatable = false)
 	    private LocalDateTime createdAt;
+	    
+//	    @OneToMany(mappedBy = "course", cascade = CascadeType.ALL)
+//	    private List<StudentCourse> enrolledStudents = new ArrayList<>();
+
 	    public String getInstructorName() {
 	        return instructorName;
 	    }
