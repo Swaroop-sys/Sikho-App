@@ -23,13 +23,7 @@ public class SecurityConfig {
 
     @Autowired
     private JwtFilter jwtFilter;
-///api/student-courses/add-stud-course
-/// /get-by-email
-/// /stud-email
-/// /getCourse
-/// /get-course-student
-/// api/earning/add-earning
-/// api/earning/total-earning
+
     @Autowired
     private CustomUserDetailsService customUserDetailsService;
     @Bean
