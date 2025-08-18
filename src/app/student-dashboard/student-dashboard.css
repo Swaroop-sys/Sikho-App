@@ -1,305 +1,381 @@
-ss
-  * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-
-  html, body {
-    height: 100%;
-    font-family: 'Inter', sans-serif;
-    background: linear-gradient(to right, #f9fafb, #f1f5f9);
-  }
-
-  .navbar {
-    background-color: #1e293b;
-    color: white;
-    padding: 1rem 2rem;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.2);
-    animation: slideDown 0.6s ease-out;
-  }
-
-  .navbar h1 {
-    font-size: 1.5rem;
-    font-weight: 600;
-    letter-spacing: 1px;
-  }
-
-  .profile {
-    background-color: #64748b;
-    padding: 0.5rem 1rem;
-    border-radius: 9999px;
-    font-size: 0.875rem;
-    transition: background-color 0.3s;
-  }
-
-  .profile:hover {
-    background-color: #475569;
-  }
-
-  .nav-buttons {
-    display: flex;
-    gap: 1rem;
-    margin: 2rem auto;
-    justify-content: center;
-    flex-wrap: wrap;
-    animation: fadeIn 1s ease-in-out;
-  }
-
-  .nav-buttons button {
-    background-color: #3b82f6;
-    border: none;
-    color: white;
-    padding: 0.75rem 1.5rem;
-    border-radius: 0.75rem;
-    cursor: pointer;
-    font-size: 1rem;
-    position: relative;
-    overflow: hidden;
-    transition: all 0.3s ease;
-  }
-
-  .nav-buttons button::after {
-    content: '';
-    position: absolute;
-    background: rgba(255, 255, 255, 0.2);
-    border-radius: 100%;
-    transform: scale(0);
-    animation: none;
-    pointer-events: none;
-    inset: 0;
-    margin: auto;
-  }
-
-  .nav-buttons button:hover::after {
-    animation: ripple 0.6s linear;
-  }
-
-  .nav-buttons button:hover {
-    background-color: #2563eb;
-    transform: scale(1.05);
-  }
-
-  .main {
-    padding: 2rem;
-    animation: fadeIn 1s ease-in;
-  }
-
-  .course-container {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 2rem;
-    justify-content: center;
-    margin-top: 2rem;
-  }
-
-  .course-card {
-    background-color: white;
-    border-radius: 0.75rem;
-    overflow: hidden;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-    width: 300px;
-    transition: transform 0.4s, box-shadow 0.3s;
-    animation: popIn 0.8s ease forwards;
-    opacity: 0;
-  }
-
-  .course-card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
-  }
-
-  .course-thumbnail {
-    width: 100%;
-    height: 180px;
-    object-fit: cover;
-  }
-
-  .course-content {
-    padding: 1rem;
-  }
-
-  .course-title {
-    font-size: 1.25rem;
-    font-weight: 600;
-    color: #1e293b;
-    margin-bottom: 0.5rem;
-  }
-
-  .course-instructor,
-  .course-category,
-  .course-description,
-  .course-price,
-  .course-date {
-    font-size: 0.9rem;
-    color: #475569;
-    margin: 0.25rem 0;
-  }
-
-  .watch-button {
-    background-color: #10b981;
-    color: white;
-    padding: 0.5rem 1rem;
-    border: none;
-    border-radius: 0.5rem;
-    cursor: pointer;
-    margin-top: 1rem;
-    font-weight: 500;
-    transition: background-color 0.3s, transform 0.2s;
-  }
-
-  .watch-button:hover {
-    background-color: #059669;
-    transform: scale(1.05);
-  }
-
-  .purchased-message {
-    font-size: 0.95rem;
-    color: #16a34a;
-    font-weight: 600;
-    padding: 0.5rem;
-    border: 1px solid #16a34a;
-    border-radius: 0.5rem;
-    background: #ecfdf5;
-    text-align: center;
-  }
-
-  .popup,
-  .rpopup {
-    position: fixed;
-    bottom: 20px;
-    left: 50%;
-    transform: translateX(-50%);
-    background-color: #10b981;
-    color: white;
-    padding: 1rem 2rem;
-    border-radius: 8px;
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
-    animation: fadeSlideIn 0.5s ease, fadeOut 2s 2s forwards;
-    font-weight: 600;
-    z-index: 999;
-  }
-
-  .rpopup {
-    background-color: #ef4444;
-  }
-
-  @keyframes slideDown {
-    from {
-      transform: translateY(-100%);
-      opacity: 0;
-    }
-    to {
-      transform: translateY(0);
-      opacity: 1;
-    }
-  }
-
-  @keyframes fadeIn {
-    0% {
-      opacity: 0;
-      transform: translateY(20px);
-    }
-    100% {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-
-  @keyframes popIn {
-    0% {
-      opacity: 0;
-      transform: scale(0.9);
-    }
-    100% {
-      opacity: 1;
-      transform: scale(1);
-    }
-  }
-
-  @keyframes ripple {
-    0% {
-      transform: scale(0);
-      opacity: 1;
-    }
-    100% {
-      transform: scale(2.5);
-      opacity: 0;
-    }
-  }
-
-  @keyframes fadeSlideIn {
-    0% {
-      opacity: 0;
-      transform: translateY(30px);
-    }
-    100% {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-
-  @keyframes fadeOut {
-    to {
-      opacity: 0;
-    }
-  }
-
-  @media (max-width: 768px) {
-    .course-card {
-      width: 100%;
-    }
-
-    .nav-buttons button {
-      width: 100%;
-      max-width: 300px;
-    }
-  }
-@keyframes shine {
-  0% {
-    background-position: -200%;
-  }
-  100% {
-    background-position: 200%;
-  }
+/* Global Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-@keyframes bounceEmoji {
-  0%, 100% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-10px);
-  }
+html, body {
+  height: 100%;
+  font-family: 'Inter', sans-serif;
+  background: linear-gradient(135deg, #f9fafb, #f1f5f9);
+  color: #1e293b;
+  scroll-behavior: smooth;
+}
+
+/* Navbar */
+.navbar {
+  background: rgba(30, 41, 59, 0.85);
+  backdrop-filter: blur(8px);
+  color: white;
+  padding: 1rem 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  animation: slideDown 0.6s ease-out;
 }
 
 .sikho-logo {
-  font-family: 'Segoe UI', sans-serif;
-  font-size: 3rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
+  font-size: 2rem;
   background: linear-gradient(90deg, #fcbf97, #00bcd4, #f7f7f7);
   background-clip: text;
   -webkit-background-clip: text;
   color: transparent;
   background-size: 200% auto;
   animation: shine 5s linear infinite;
-  text-align: center;
-  margin-top: 10px;
-  user-select: none;
-  letter-spacing: 3px;
   font-weight: 700;
+  letter-spacing: 3px;
 }
 
-.book-icon {
-  animation: bounceEmoji 1.2s ease-in-out infinite;
+.profile {
+  background: linear-gradient(135deg, #64748b, #475569);
+  padding: 0.5rem 1rem;
+  border-radius: 9999px;
+  font-size: 0.875rem;
+  transition: transform 0.3s ease, background 0.3s ease;
+}
+.profile:hover {
+  background: linear-gradient(135deg, #475569, #334155);
+  transform: scale(1.05);
+}
+
+/* Nav Buttons */
+.nav-buttons {
+  display: flex;
+  gap: 1rem;
+  margin: 2rem auto;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.nav-buttons button {
+  background: linear-gradient(135deg, #3b82f6, #2563eb);
+  border: none;
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.75rem;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 500;
+  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+.nav-buttons button:hover {
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 6px 18px rgba(37, 99, 235, 0.4);
+}
+
+/* Main Content */
+.main {
+  padding: 2rem;
+  animation: fadeIn 0.8s ease-in-out;
+}
+
+/* Courses Grid */
+.course-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.course-card {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(12px);
+  border-radius: 1rem;
+  overflow: hidden;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+  transform: translateY(20px);
+  opacity: 0;
+  animation: popIn 0.8s forwards;
+}
+.course-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
+}
+
+.course-thumbnail {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+.course-card:hover .course-thumbnail {
+  transform: scale(1.05);
+}
+
+.course-content {
+  padding: 1rem;
+}
+
+/* Watch Button */
+.watch-button {
+  background: linear-gradient(135deg, #10b981, #059669);
+  color: white;
+  padding: 0.6rem 1.2rem;
+  border: none;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  margin-top: 1rem;
+  font-weight: 500;
+  box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
+  transition: transform 0.3s, background 0.3s;
+}
+.watch-button:hover {
+  background: linear-gradient(135deg, #059669, #047857);
+  transform: translateY(-2px) scale(1.05);
+}
+
+/* Popups */
+.popup, .rpopup {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 1rem 1.5rem;
+  border-radius: 0.5rem;
+  font-weight: 500;
+  animation: fadeSlideIn 0.5s ease, fadeOut 3s 2s forwards;
+}
+.popup { background-color: #10b981; color: white; }
+.rpopup { background-color: #ef4444; color: white; }
+
+/* Animations */
+@keyframes slideDown {
+  from { transform: translateY(-100%); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+@keyframes popIn {
+  to { transform: translateY(0); opacity: 1; }
+}
+@keyframes shine {
+  0% { background-position: -200%; }
+  100% { background-position: 200%; }
+}
+@keyframes fadeSlideIn {
+  0% { opacity: 0; transform: translateY(30px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeOut {
+  to { opacity: 0; }
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .navbar { flex-direction: column; gap: 1rem; text-align: center; }
+  .nav-buttons button { width: 100%; max-width: 280px; }
+}
+.course-description {
+  font-size: 0.95rem;
+  color: #475569;
+  line-height: 1.5;
+  margin: 0.5rem 0;
+  text-align: justify;
+  word-break: break-word;
+  max-height: 3.6em; /* ~2 lines */
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2; /* Show 2 lines only */
+  -webkit-box-orient: vertical;
+  transition: max-height 0.3s ease;
+}
+
+.filter-container {
+  width: 300px;
+  background: #fff;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  font-family: Arial, sans-serif;
+}
+
+.filter-container h2 {
+  margin-bottom: 15px;
+  font-size: 1.5em;
+  color: #333;
+}
+
+.filter-group {
+  margin-bottom: 15px;
+}
+
+.filter-group label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+  color: #555;
+}
+
+.filter-group input[type="text"],
+.filter-group select {
+  width: 100%;
+  padding: 8px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+.filter-group input[type="range"] {
+  width: 100%;
+}
+
+#price-value {
   display: inline-block;
+  margin-top: 5px;
+  font-weight: bold;
+  color: #333;
+}
+
+.rating-options label {
+  display: block;
+  margin-bottom: 5px;
+  font-size: 14px;
+}
+
+.filter-actions {
+  display: flex;
+  justify-content: space-between;
+}
+
+.apply-btn {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.reset-btn {
+  background-color: #ccc;
+  color: #333;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.apply-btn:hover {
+  background-color: #0056b3;
+}
+
+.reset-btn:hover {
+  background-color: #aaa;
+}
+.filter-container {
+  position: absolute;
+  right: 10px;
+  margin-top: 8px; /* small gap under navbar */
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: 'Segoe UI', sans-serif;
+  
+  /* Animation on load */
+  opacity: 0;
+  transform: translateY(-15px);
+  animation: fadeSlideDown 0.8s ease-out forwards;
+  
+  /* Background & style */
+  background: rgba(255, 255, 255, 0.9);
+  padding: 6px 12px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  backdrop-filter: blur(8px);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Hover effect */
+.filter-container:hover {
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
+}
+
+/* Label styling */
+.filter-label {
+  font-size: 16px;
+  font-weight: 400;
+  color: #333;
+}
+
+/* Dropdown styling */
+.filter-select {
+  padding: 4px 12px;
+  border: 2px solid #ccc;
+  border-radius: 8px;
+  background-color: white;
+  font-size: 12px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  outline: none;
+}
+
+.filter-select:hover {
+  border-color: #007bff;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+.filter-select:focus {
+  border-color: #0056b3;
+  box-shadow: 0 0 6px rgba(0, 86, 179, 0.6);
+}
+
+/* Animation keyframes */
+@keyframes fadeSlideDown {
+  0% {
+    opacity: 0;
+    transform: translateY(-15px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Mobile view adjustments */
+@media (max-width: 768px) {
+  .filter-container {
+    position: relative;
+    right: auto;
+    margin: 10px auto;
+    justify-content: center;
+    flex-wrap: wrap;
+    animation: fadeSlideDown 0.8s ease-out forwards;
+  }
+  
+  .filter-label {
+    font-size: 14px;
+  }
+  
+  .filter-select {
+    font-size: 14px;
+    padding: 6px 10px;
+  }
+}
+  .no-course-message {
+  color: #b00020;
+  font-weight: 500;
+  margin-top: 10px;
+  background: #ffe5e5;
+  padding: 10px;
+  border-radius: 5px;
 }

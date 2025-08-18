@@ -42,4 +42,17 @@ const token = localStorage.getItem('token');
   });
 return this.http.get(`http://localhost:8080/api/auth/stud-email/${email}`,{headers})
 }
+deleteCourseById(id: number): Observable<string> {
+  const token = localStorage.getItem('token') || '';
+  
+  const headers = new HttpHeaders({
+    'Authorization': `Bearer ${token}`
+  });
+
+  return this.http.delete<string>(
+    `http://localhost:8080/api/course/delete-course-by-id/${id}`,
+    { headers }
+  );
+}
+
 }

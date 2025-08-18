@@ -58,3 +58,17 @@ textarea.invalid,
 select.invalid {
   border-color: red;
 }
+.note {
+  display: block;
+  margin-top: 5px;
+  font-size: 0.85rem;
+  color: #555;
+  background: #f9f9f9;
+  padding: 8px;
+  border-left: 3px solid #2196f3;
+  border-radius: 4px;
+}
+.note a {
+  color: #2196f3;
+  text-decoration: underline;
+}

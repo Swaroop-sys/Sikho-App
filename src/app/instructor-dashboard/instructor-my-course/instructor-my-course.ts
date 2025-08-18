@@ -42,4 +42,15 @@ filteredCourses: any[] = []; // result after search
     course.instructorName.toLowerCase().includes(term)
   );
 }
+onDelete(id:any){
+  this.courseService.deleteCourseById(id).subscribe({
+        next: (res) => {
+          alert('Course deleted successfully!');
+          this.ngOnInit();
+        },
+        error: (err) => {
+          alert('Error deleting course: ' + err.error);
+        }
+      });
+}
 }

@@ -89,27 +89,43 @@
       #thumbnailUrl="ngModel"
       [class.invalid]="thumbnailUrl.invalid && thumbnailUrl.touched"
     />
+    <small class="note">
+  💡 <strong>How to get this link from Catbox:</strong><br>
+  1️⃣ Go to <a href="https://catbox.moe/" target="_blank">catbox.moe</a><br>
+  2️⃣ Click on <em>File Upload</em> and choose your thumbnail.<br>
+  3️⃣ Upload and copy the provided <strong>Direct Link</strong>.<br>
+  4️⃣ Paste that link here.
+</small>
     <div *ngIf="thumbnailUrl.invalid && thumbnailUrl.touched" class="error">
       Valid thumbnail URL is required (starts with http:// or https://).
     </div>
 
-    <!-- Video URL -->
-    <label for="videoUrl">Video URL</label>
-    <input
-      type="url"
-      id="videoUrl"
-      name="videoUrl"
-      [(ngModel)]="course.videoUrl"
-      required
-      pattern="https?://.+"
-      placeholder="https://example.com/video.mp4"
-      #videoUrl="ngModel"
-      [class.invalid]="videoUrl.invalid && videoUrl.touched"
-    />
-    <div *ngIf="videoUrl.invalid && videoUrl.touched" class="error">
-      Valid video URL is required (starts with http:// or https://).
-    </div>
-<div *ngIf="videoUrl.invalid && videoUrl.touched" class="error">VideoUrl is required.</div>
+   <!-- Video URL -->
+<label for="videoUrl">Video URL</label>
+<input
+  type="url"
+  id="videoUrl"
+  name="videoUrl"
+  [(ngModel)]="course.videoUrl"
+  required
+  pattern="https?://.*\.(mp4|webm|ogg)"
+  placeholder="Example: https://example.com/video.mp4"
+  title="Enter a valid video URL ending with .mp4, .webm, or .ogg"
+  #videoUrl="ngModel"
+  [class.invalid]="videoUrl.invalid && videoUrl.touched"
+/>
+<small class="note">
+  💡 <strong>How to get this link from Catbox:</strong><br>
+  1️⃣ Go to <a href="https://catbox.moe/" target="_blank">catbox.moe</a><br>
+  2️⃣ Click on <em>File Upload</em> and choose your video.<br>
+  3️⃣ Upload and copy the provided <strong>Direct Link</strong>.<br>
+  4️⃣ Paste that link here.
+</small>
+<!-- Validation message -->
+<div *ngIf="videoUrl.invalid && videoUrl.touched" class="error">
+  A valid video URL is required (e.g., <code>https://example.com/video.mp4</code>).
+</div>
+
     <!-- Price -->
     <label for="price">Price (₹)</label>
     <input
@@ -130,4 +146,5 @@
     <button type="submit"  class="submit-btn" [disabled]="!courseForm.form.valid">Create Course</button>
 
   </form>
+  
 </div>
