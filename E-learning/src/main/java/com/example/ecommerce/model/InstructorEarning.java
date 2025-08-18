@@ -11,6 +11,16 @@ import jakarta.persistence.ManyToOne;
 
 @Entity
 public class InstructorEarning {
+public Course getCourseId() {
+		return course;
+	}
+
+
+	public void setCourseId(Course courseId) {
+		this.course = courseId;
+	}
+
+
 @Id
 @GeneratedValue(strategy = GenerationType.IDENTITY)
 private Long id;
@@ -18,8 +28,10 @@ private Long id;
 @JsonIgnore
 @ManyToOne
 @JoinColumn(name = "instructor_id", nullable = false)
-private AuthModel instructor; 
-
+private AuthModel instructor;
+@ManyToOne
+@JoinColumn(name = "course_id", nullable = false)
+private Course course; 
 
 private Double earning;
 

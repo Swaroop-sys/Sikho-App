@@ -42,8 +42,8 @@ public class Course {
 	    @Column(updatable = false)
 	    private LocalDateTime createdAt;
 	    
-//	    @OneToMany(mappedBy = "course", cascade = CascadeType.ALL)
-//	    private List<StudentCourse> enrolledStudents = new ArrayList<>();
+	    @OneToMany(mappedBy = "course", cascade = CascadeType.ALL, orphanRemoval = true)
+	    private List<StudentCourse> enrolledStudents = new ArrayList<>();
 
 	    public String getInstructorName() {
 	        return instructorName;

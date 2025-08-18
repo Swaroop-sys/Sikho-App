@@ -51,4 +51,9 @@ public class CourseController {
     public List<Course> getCourseById(@PathVariable String categories) {
         return courseService.findByCategory(categories);
     }
+    @DeleteMapping("/delete-course-by-id/{id}")
+    public boolean deleteById(@PathVariable Long id) {
+    	 courseService.deleteById(id);
+    	 return true;
+    }
 }

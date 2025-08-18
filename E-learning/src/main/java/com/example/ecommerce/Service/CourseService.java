@@ -13,6 +13,8 @@ import com.example.ecommerce.model.Course;
 
 @Service
 public class CourseService {
+	@Autowired
+	private com.example.ecommerce.Repository.StudentCourseRepo studentCourseRepo;
 
     @Autowired
     private CourseRepo courseRepository;
@@ -45,5 +47,20 @@ public class CourseService {
     public List<Course> findByCategory(String categories){
     	return courseRepository.findByCategory(categories);
     }
+    
+    public boolean deleteById(Long id) {
+        // Check if course exists
+        Course course = courseRepository.findById(id)
+            .orElseThrow(() -> new RuntimeException("Course not found with id: " + id));
+
+        // First delete from student-course mapping table
+        studentCourseRepo.deleteByCourseId(id);
+
+        // Then delete the course itself
+        courseRepository.deleteById(id);
+
+        return true;
+    }
+
 }
 

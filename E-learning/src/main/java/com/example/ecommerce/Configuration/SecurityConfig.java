@@ -32,6 +32,7 @@ public class SecurityConfig {
             .authorizeHttpRequests()
             .requestMatchers("/api/auth/**").permitAll()
             .requestMatchers("/api/course/message").permitAll()
+            .requestMatchers("/api/course/delete-course-by-id/").hasRole(Role.INSTRUCTOR.toString())
             .requestMatchers("/api/course/get-by-category").hasRole(Role.STUDENT.toString())
             .requestMatchers("/api/student-courses/getCourse").permitAll()
             .requestMatchers("/api/student-courses/get-course-student/").hasRole(Role.STUDENT.name())
