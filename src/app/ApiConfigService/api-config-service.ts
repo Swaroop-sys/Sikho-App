@@ -4,5 +4,5 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class ApiConfigService {
-   baseUrl = "https://snazzy-blini-026a4e.netlify.app";
+   baseUrl = "https://spectacular-rugelach-ef3fb8.netlify.app";
 }
