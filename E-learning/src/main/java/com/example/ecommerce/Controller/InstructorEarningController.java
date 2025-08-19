@@ -3,6 +3,7 @@ package com.example.ecommerce.Controller;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -12,7 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.example.ecommerce.Service.InstructorEarningService;
 import com.example.ecommerce.model.InstructorEarning;
-
+@CrossOrigin(origins = "https://majestic-rolypoly-d12d8d.netlify.app")
 @RestController
 @RequestMapping("/api/earning")
 public class InstructorEarningController {
