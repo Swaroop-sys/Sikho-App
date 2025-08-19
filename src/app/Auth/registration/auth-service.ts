@@ -9,9 +9,9 @@ import { ApiConfigService } from '../../ApiConfigService/api-config-service';
 export class AuthService {
   constructor(private http: HttpClient,private apiConfig:ApiConfigService) {}
  registerUser(userData: any) {
-    return this.http.post(`${this.apiConfig}/api/auth/register`, userData);
+    return this.http.post(`${this.apiConfig.baseUrl}/api/auth/register`, userData);
   }
   loginUser(userData: any):Observable<any> {
-    return this.http.post<any>(`${this.apiConfig}/api/auth/login`, userData);
+    return this.http.post<any>(`${this.apiConfig.baseUrl}/api/auth/login`, userData);
   }
 }
