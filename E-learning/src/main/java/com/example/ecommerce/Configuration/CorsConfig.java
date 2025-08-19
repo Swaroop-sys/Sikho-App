@@ -16,7 +16,7 @@ public class CorsConfig {
     public CorsFilter corsFilter() {
         CorsConfiguration config = new CorsConfiguration();
         config.setAllowCredentials(true); // allows cookies
-        config.setAllowedOrigins(Arrays.asList("https://snazzy-blini-026a4e.netlify.app"));
+        config.setAllowedOrigins(Arrays.asList("https://spectacular-rugelach-ef3fb8.netlify.app"));
         config.setAllowedHeaders(Arrays.asList("*"));
         config.setAllowedMethods(Arrays.asList("GET", "POST", "PUT", "DELETE", "OPTIONS"));
 

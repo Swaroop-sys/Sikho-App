@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.example.ecommerce.Service.InstructorEarningService;
 import com.example.ecommerce.model.InstructorEarning;
-@CrossOrigin(origins = "https://snazzy-blini-026a4e.netlify.app")
+@CrossOrigin(origins = "https://spectacular-rugelach-ef3fb8.netlify.app")
 @RestController
 @RequestMapping("/api/earning")
 public class InstructorEarningController {
