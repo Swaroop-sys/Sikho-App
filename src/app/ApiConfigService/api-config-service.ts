@@ -4,5 +4,5 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class ApiConfigService {
-   baseUrl = "https://spectacular-rugelach-ef3fb8.netlify.app";
+   baseUrl = "sikho-app.railway.internal";
 }
