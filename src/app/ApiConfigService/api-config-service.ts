@@ -4,5 +4,5 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class ApiConfigService {
-   baseUrl = "sikho-app.railway.internal";
+   baseUrl = "https://sikho-app-production.up.railway.app";
 }
